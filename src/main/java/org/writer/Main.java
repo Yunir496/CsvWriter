@@ -12,25 +12,6 @@ import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        List<Person> people = new ArrayList<>(Arrays.asList(
-             Person.builder().firstName("John").lastName("Doe").dayOfBirth(1).monthOfBirth(Months.JANUARY).yearOfBirth(1990).build(),
-             Person.builder().firstName("Jane").lastName("Smith").dayOfBirth(15).monthOfBirth(Months.MARCH).yearOfBirth(1985).build()
-        ));
-
-        List<Student>students = new ArrayList<>(Arrays.asList(
-                Student.builder().name("Alice").score(Arrays.asList("A","B","C")).build(),
-                Student.builder().name("Bob").score(Arrays.asList("B","A","A")).build()
-        ));
-
-        WritableImpl writable = new WritableImpl();
-        writable.writeToFile(people, "people.csv");
-        writable.writeToFile(students, "students.csv");
-
-        System.out.println("CSV файлы успешно созданы");
-    }
-    */
-
 
         // Создаем объект Faker для генерации случайных данных
         Faker faker = new Faker(new Locale("ru"));

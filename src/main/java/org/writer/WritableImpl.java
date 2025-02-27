@@ -13,10 +13,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Реализация интерфейса {@link Writable} для записи данных объектов в CSV-файл.
- *
  * Этот класс предоставляет функциональность для записи объектов в файл CSV, используя аннотацию
  * {@link CSVField} для определения полей, которые должны быть записаны.
- *
  * @see Writable
  * @see CSVField
  */
@@ -25,21 +23,18 @@ public class WritableImpl implements Writable {
     /**
      * Логгер для записи событий и ошибок в процессе работы класса.
      */
-    private static final Logger logger = LoggerFactory.getLogger(WritableImpl.class);
+     private static final Logger logger = LoggerFactory.getLogger(WritableImpl.class);
 
     /**
      * Записывает список объектов в CSV-файл с указанным именем.
-     *
      * Метод анализирует поля объектов, помеченные аннотацией {@link CSVField}, и записывает их
      * в CSV-файл. Если поле является списком или перечислением, оно будет корректно сериализовано
      * в строковое представление.
-     *
      * Пример использования:
      * <pre>{@code
      * List<Person> people = List.of(new Person("John", "Doe", 1, Months.JANUARY, 1990));
      * writable.writeToFile(people, "people.csv");
      * }</pre>
-     *
      * @param data     Список объектов для записи в файл. Не может быть {@code null} или пустым.
      * @param fileName Имя файла, в который будут записаны данные. Не может быть {@code null}.
      * @throws IllegalArgumentException Если переданный список {@code data} равен {@code null} или пуст.
@@ -48,9 +43,15 @@ public class WritableImpl implements Writable {
      */
     @Override
     public void writeToFile(List<?> data, String fileName) {
+        //Проверка null для data
         if (data == null || data.isEmpty()) {
             logger.error("Data is null or empty");
             throw new IllegalArgumentException("Data list cannot be null or empty");
+        }
+        //Проверка null для fileName
+        if (fileName == null) {
+            logger.error("File name is null");
+            throw new IllegalArgumentException("File name cannot be null");
         }
 
         Class<?> clazz = data.get(0).getClass();
