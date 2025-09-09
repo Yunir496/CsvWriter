@@ -1,6 +1,6 @@
 plugins {
-    `java-library`
-    `maven-publish`
+    id("java-library")
+    id("maven-publish")
 }
 
 group = "org.writer"
@@ -8,11 +8,14 @@ version = "1.0-SNAPSHOT"
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+        withSourcesJar()
+        withJavadocJar()
     }
-    withSourcesJar()
-    withJavadocJar()
-}
 
 repositories {
     mavenCentral()
